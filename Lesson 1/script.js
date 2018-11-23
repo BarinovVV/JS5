@@ -1,20 +1,21 @@
-// var yourBudget = +prompt("Ваш бюджет?", "10000");
-// var nameShop = prompt("Название вашего магазина", "Мой магазин");
-// console.log(budget);
-// console.log(nameShop);
+'use strict';
 
-var mainList = {
-	budget: +prompt("Ваш бюджет?", "10000"),
-	shopName: prompt("Название вашего магазина", "Мой магазин"),
-	shopGoods: [],
-	employers: {},
-	open: true
-};
+let money = prompt('Ваш бюджет на месяц', '10000'),
+		time = prompt('Введите дату в формате YYYY-MM-DD', '2018-01-31'),
+		appData = {
+			yourBudget: money,
+			timeData: time,
+			expenses: {},
+			optionalExpenses: {},
+			income: [],
+			savings: false
+		};
 
+let answer1 = prompt('Введите первую обязательную статью расходов', 'зарплата');
+appData.expenses[answer1] = prompt('Во сколько она вам обойдется', 1000);
 
-for(let i = 0; i < 3; i++){
-	mainList.shopGoods[i] = prompt("Какой тип товаров будем продавать?", "тип товара");
-}
+let answer2 = prompt('Введите вторую обязательную статью расходов', 'материалы');
+appData.expenses[answer2] = prompt('Во сколько она вам обойдется', 2000);
 
-console.log("Ваш бюджет на 1 день: " + mainList.budget / 30);
+document.writeln('Ваш бюджет на один день составляет ' + (money/30).toFixed(2));
 
