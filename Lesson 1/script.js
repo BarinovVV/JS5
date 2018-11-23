@@ -17,5 +17,11 @@ appData.expenses[answer1] = prompt('Во сколько она вам обойд
 let answer2 = prompt('Введите вторую обязательную статью расходов', 'материалы');
 appData.expenses[answer2] = prompt('Во сколько она вам обойдется', 2000);
 
-document.writeln('Ваш бюджет на один день составляет ' + (money/30).toFixed(2));
+document.writeln('Ваш бюджет на один день составляет ' + (appData.yourBudget/30).toFixed(2));
 
+// let a1 = prompt('Введите первую обязательную статью расходов', 'зарплата'),
+// 		a2 = prompt('Во сколько она вам обойдется', 1000);
+// appData.expenses.a1 = a2;
+
+// let answer2 = prompt('Введите вторую обязательную статью расходов', 'материалы');
+// appData.expenses[answer2] = prompt('Во сколько она вам обойдется', 2000);
