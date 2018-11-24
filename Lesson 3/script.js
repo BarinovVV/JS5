@@ -51,10 +51,10 @@ let money = +prompt('Ваш бюджет на месяц', '10000'),
 // 	i++;
 // }
 
-let i = 0;
+let i = 1;
 do {
-	let a = prompt('Введите первую обязательную статью расходов', 'Статья № '),
-			b = +prompt('Во сколько она вам обойдется', '100');
+	let a = prompt('Введите первую обязательную статью расходов', 'Статья № ' + i),
+			b = +prompt('Во сколько она вам обойдется', i*1000);
 			console.log(typeof(a));
 			console.log(typeof(b));
 				if (a != null && b != null && a != '' && b !='' && a.length < 50) {
@@ -66,7 +66,7 @@ do {
 					// alert(i);
 				}
 			i++;
-} while (i < 2);
+} while (i < 3);
 
 //Определение функции по выводу бюджета
 function detectDayBudget() {
@@ -97,15 +97,15 @@ detectLevel(+appData.budgetPerDay);
 
 
 //Определение функции по введению необязательных расходов
-function chooseOptExpenses() {
-	for (i = 1; i <= 3; i++) {
-		let answer = prompt("Введите статью необязательных расходов", "Статья")
+function chooseOptExpenses(count) {
+	for (i = 1; i <= count; i++) {
+		let answer = prompt("Введите статью необязательных расходов", "Статья # " + i);
 		appData.optionalExpenses[i] = answer;
 	}
 }
 
 //Вызов функции по введению необязательных расходов
-chooseOptExpenses();
+chooseOptExpenses(3);
 
  
 
