@@ -56,10 +56,26 @@ let money = +prompt('Ваш бюджет на месяц', '10000'),
 				}
 			},
 			chooseIncome: function() {
-				let items = prompt("Что вам принесет дополнительны доход (перечислите через запятую)", "проценты, фриланс, казино");
-				appData.income = items.split(', ');
-				appData.income.push(prompt("Может есть еще какой источник?", "наследство"));
-				appData.income.sort();
+				let a = false;
+				while (a != true) {
+					let items = prompt("Что вам принесет дополнительный доход (перечислите через запятую)", "проценты, фриланс, казино");
+					if (items == null) {
+						alert("Вы не можете отменить ввод!");
+						// break;
+					} else if (items == '') {
+						alert("Вы не можете ввести пустую строку!");
+						// break;
+					} else {
+						appData.income = items.split(', ');
+						appData.income.push(prompt("Может есть еще какой источник?", "наследство"));
+						appData.income.sort();
+						document.writeln("Способы дополнительного заработка: <br> ");
+						appData.income.forEach(function(item, index) {
+							document.writeln((index+1) + ": " + item + "<br>");
+						});
+						a = true;
+					}
+				}
 			}
 		};
 
@@ -76,6 +92,13 @@ let money = +prompt('Ваш бюджет на месяц', '10000'),
 // appData.checkSavings();
 
 appData.chooseIncome();
+
+console.log("Наша программа включает следующие данные:")
+for (let key in appData) {
+	console.log("Ключ: " + key + " значение: " + appData[key]);
+}
+
+
 
 // for (let key in appData) {
 // 	console.log("Свойство " + key + " имеет значение: " + appData[key]);
