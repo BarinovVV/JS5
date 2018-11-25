@@ -8,7 +8,7 @@ let money = +prompt('Ваш бюджет на месяц', '10000'),
 			expenses: {},
 			optionalExpenses: {},
 			income: [],
-			savings: false
+			savings: true
 		};
 
 // let answer1 = prompt('Введите первую обязательную статью расходов', 'зарплата');
@@ -107,7 +107,16 @@ function chooseOptExpenses(count) {
 //Вызов функции по введению необязательных расходов
 chooseOptExpenses(3);
 
- 
+function checkSavings() {
+	if (appData.savings == true) {
+		let save = +prompt("Какова сумма ваших накоплений?", 5000),
+				percent = +prompt("Под какой процент?", 11);
+		appData.monthIncome = save/100/12*percent;
+		alert("Доход в месяц с вашего депозита: " + appData.monthIncome.toFixed(2));
+	}
+}
+
+checkSavings();
 
 // switch (level) {
 // 	case level < 100:
