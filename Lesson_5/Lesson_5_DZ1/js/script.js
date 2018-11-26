@@ -1,6 +1,6 @@
 'use strict';
 
-console.log("Начинаем делать урок 5");
+// console.log("Начинаем делать урок 5");
 
 let menuItems = document.querySelectorAll('.menu-item'),
 		menu = document.querySelector('.menu'),
