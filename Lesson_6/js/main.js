@@ -29,6 +29,7 @@ let startBtn = document.getElementById('start'),
 
 let money, time;
 
+countBtn.disabled = true;
 
 startBtn.addEventListener('click', function() {
 	time = prompt('Введите дату в формате YYYY-MM-DD', '2018-01-31');
@@ -43,16 +44,17 @@ startBtn.addEventListener('click', function() {
 	yearValue.value = new Date(Date.parse(time)).getFullYear();
 	monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
 	dayValue.value = new Date(Date.parse(time)).getDate();
+	countBtn.disabled = false;
 });
 
+// expensesBtn.disabled = true;
 expensesBtn.addEventListener('click', function() {
 	let sum = 0;
 	for (let i = 0; i < expensesItem.length; i++) {
 		let a = expensesItem[i].value,
 				b = +expensesItem[++i].value;
 
-		if (a != null && b != null && a != '' && b !='' && a.length < 50) {
-			console.log('DONE');
+		if (a != null && b != null && a != '' && b !='') {
 			appData.expenses[a] = b;
 			sum += +b;
 		} else {
@@ -60,9 +62,11 @@ expensesBtn.addEventListener('click', function() {
 			i--;
 		}
 	}
-	expensesValue.textContent = sum;
+	// expensesBtn.disabled = false;
+	expensesValue.textContent = sum.toFixed(2);
 });
 
+optionalExpensesBtn.disabled = true;
 optionalExpensesBtn.addEventListener('click', function() {
 	let sum = 0;
 	for (let i = 0; i < optionalExpensesItem.length; i++) {
@@ -74,12 +78,19 @@ optionalExpensesBtn.addEventListener('click', function() {
 	}
 });
 
+function sumObj(obj) {
+	let rez = 0;
+	for(let key in obj) {
+	 rez += obj[key];
+	 }
+	return rez;
+	};
 countBtn.addEventListener('click', function() {
 
 	if (appData.yourBudget != undefined) {
-		appData.budgetPerDay = +(appData.yourBudget/30).toFixed(2);
+		appData.budgetPerDay = +((appData.yourBudget - sumObj(appData.expenses))/30).toFixed(2);
 		dayBudgetValue.textContent = appData.budgetPerDay;
-		let level = appData.budgetPerDay
+		let level = appData.budgetPerDay;
 
 		if ( level < 100) {
 			levelValue.textContent = 'Низкий уровень';
