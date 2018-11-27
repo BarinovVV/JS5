@@ -16,8 +16,8 @@ let startBtn = document.getElementById('start'),
 		optionalExpensesItem = document.querySelectorAll('optionalexpenses-item'),
 
 		expensesBtn = document.getElementsByTagName('button')[0],
-		optionalExpensesBtn = document.getElementsByTagName('button')[0],
-		countBtn = document.getElementsByTagName('button')[0],
+		optionalExpensesBtn = document.getElementsByTagName('button')[1],
+		countBtn = document.getElementsByTagName('button')[2],
 
 		incomeItem = document.querySelector('choose-income'),
 		checkSavings = document.querySelector('#savings'),
