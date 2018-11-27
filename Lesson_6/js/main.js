@@ -66,7 +66,7 @@ expensesBtn.addEventListener('click', function() {
 	expensesValue.textContent = sum.toFixed(2);
 });
 
-optionalExpensesBtn.disabled = true;
+// optionalExpensesBtn.disabled = true;
 optionalExpensesBtn.addEventListener('click', function() {
 	let sum = 0;
 	for (let i = 0; i < optionalExpensesItem.length; i++) {
