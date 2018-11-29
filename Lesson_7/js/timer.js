@@ -3,6 +3,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	let timerText = document.querySelector('.timer');
 
+	timerText.style.fontSize = '25px';
+
 
 // function currentTime() {
 // 		let now = new Date();
