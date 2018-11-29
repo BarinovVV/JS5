@@ -25,7 +25,9 @@ let startBtn = document.getElementById('start'),
 		percentValue = document.querySelector('.choose-percent'),
 		yearValue = document.querySelector('.year-value'),
 		monthValue = document.querySelector('.month-value'),
-		dayValue = document.querySelector('.day-value');
+		dayValue = document.querySelector('.day-value'),
+
+		myBody = document.querySelector('body');
 
 let money, time;
 
@@ -47,7 +49,15 @@ startBtn.addEventListener('click', function() {
 	countBtn.disabled = false;
 });
 
-// expensesBtn.disabled = true;
+expensesBtn.disabled = true;
+
+myBody.addEventListener('input', function(e) {
+	if (expensesItem[0].value != '' && expensesItem[1].value != '' && expensesItem[2].value != '' && expensesItem[3].value != '') {
+		expensesBtn.disabled = false;
+	}
+
+});
+
 expensesBtn.addEventListener('click', function() {
 	let sum = 0;
 	for (let i = 0; i < expensesItem.length; i++) {
@@ -62,7 +72,6 @@ expensesBtn.addEventListener('click', function() {
 			i--;
 		}
 	}
-	// expensesBtn.disabled = false;
 	expensesValue.textContent = sum.toFixed(2);
 });
 
