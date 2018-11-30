@@ -1,6 +1,9 @@
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 
+	// let audio = document.querySelector('audio'),
+	// 		myAudio = new Audio('../yoga/js/02611.mp3');
+
 	let tab = document.querySelectorAll('.info-header-tab'),
 			info = document.querySelector('.info-header'),
 			tabContent = document.querySelectorAll('.info-tabcontent');
@@ -37,13 +40,21 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	//Timer
 
-	let deadLine = '2018-12-2';
+	let deadLine = '2018-12-01';
 
 	function getTimeRemaining(endtime) {
 		let t = Date.parse(endtime) - Date.parse(new Date()),
 				seconds = Math.floor((t/1000) % 60),
 				minutes = Math.floor((t/1000/60) % 60),
 				hours = Math.floor((t/(1000*60*60)));
+
+		if (t <= 0) {
+			t = 0;
+			seconds = 0;
+			minutes = 0;
+			hours = 0;
+			document.querySelector('.timer-action').textContent = 'Акция уже закончилась'; 
+		}
 
 				return {
 					'total': t,
@@ -62,9 +73,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		function upDateClock() {
 				let t = getTimeRemaining(endtime);
-				hours.textContent = t.hours;
-				minutes.textContent = t.minutes;
-				seconds.textContent = t.seconds;
+				hours.textContent = to2(t.hours);
+				minutes.textContent = to2(t.minutes);
+				seconds.textContent = to2(t.seconds);
 
 				if (t.total <= 0) {
 					clearInterval(timeInterval);
@@ -73,7 +84,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	};
 
-	setClock('timer', deadLine);
+	function to2(val) {
+	 return (val<10 ? "0"+val : val);
+	}
 
+
+
+	setClock('timer', deadLine);
 
 });
