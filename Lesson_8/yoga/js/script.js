@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 
-	// let audio = document.querySelector('audio'),
+	// let audio = document.querySelector('audio');
 	// 		myAudio = new Audio('../yoga/js/02611.mp3');
 
 	let tab = document.querySelectorAll('.info-header-tab'),
@@ -64,6 +64,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}
 	};
 
+
 	function setClock(id, endtime) {
 		let timer = document.getElementById(id),
 				hours = timer.querySelector('.hours'),
@@ -71,11 +72,15 @@ window.addEventListener('DOMContentLoaded', function() {
 				seconds = timer.querySelector('.seconds'),
 				timeInterval = setInterval(upDateClock, 1000);
 
+
 		function upDateClock() {
 				let t = getTimeRemaining(endtime);
 				hours.textContent = to2(t.hours);
 				minutes.textContent = to2(t.minutes);
 				seconds.textContent = to2(t.seconds);
+				
+				let audio = document.querySelector('audio');
+				audio.play();
 
 				if (t.total <= 0) {
 					clearInterval(timeInterval);
