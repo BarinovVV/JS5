@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				hours.textContent = to2(t.hours);
 				minutes.textContent = to2(t.minutes);
 				seconds.textContent = to2(t.seconds);
-				
+
 				let audio = document.querySelector('audio');
 				audio.play();
 
@@ -98,3 +98,9 @@ window.addEventListener('DOMContentLoaded', function() {
 	setClock('timer', deadLine);
 
 });
+
+window.onscroll = function() {
+ let audio  = document.getElementById('audio');
+		audio.play();
+
+};
