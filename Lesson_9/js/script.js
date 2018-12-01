@@ -8,31 +8,13 @@ window.addEventListener('DOMContentLoaded', function() {
 	title.textContent = 'Lesson 9';
 	lesson.style.textAlign = 'center';
 
-	// var audio = new Audio('../js/sound.mp3');
-	// 		audio.play();
-	// let audio  = document.getElementById('audio'),
-	// 		myBody = document.querySelector('body');
-
-	// myBody.addEventListener('click', function() {
-	// 	audio.play();
-		
-	// })
-
-
 	let age = document.getElementById('age');
-	 
+
 	function showUser(surname, name) {
-	         alert("Пользователь " + surname + " " + name + ", его возраст " + age.value);
+	         alert("Пользователь " + surname + " " + name + ", его возраст " + this.value);
 	}
-	 
-	showUser('Артем', 'Исламов');
 
-
+	showUser.call(age, 'Валерий', 'Баринов');
 
 });
 
-window.onwheel = function() {
- let audio  = document.getElementById('audio');
-		audio.play();
-
-}
