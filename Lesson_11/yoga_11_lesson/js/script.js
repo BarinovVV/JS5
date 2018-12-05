@@ -131,10 +131,14 @@ window.addEventListener('DOMContentLoaded', () => {
 			statusMessage = document.createElement('div');
 
 			statusMessage.classList.add('status');
+			// let message = document.querySelector('.status');
 
 		form.addEventListener('submit', function(event) {
 			event.preventDefault();
 			form.appendChild(statusMessage);
+			let formMessage = document.querySelector('.status');
+			formMessage.style.cssText = `color: white;
+																			padding-top: 20px`;
 
 			let request = new XMLHttpRequest();
 			request.open('POST', 'server.php');
@@ -176,6 +180,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			let contactMessage = document.querySelector('.status');
 			contactMessage.style.cssText = `color: yellow;
 																			padding-top: 20px`;
+
 			let request = new XMLHttpRequest();
 			request.open('POST', 'server.php');
 			// request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -222,6 +227,8 @@ window.addEventListener('DOMContentLoaded', () => {
 			});
 
 		});
+
+
 
 });
 
