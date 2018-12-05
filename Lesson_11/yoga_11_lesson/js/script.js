@@ -138,7 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			form.appendChild(statusMessage);
 			let formMessage = document.querySelector('.status');
 			formMessage.style.cssText = `color: white;
-																			padding-top: 20px`;
+			padding-top: 20px`;
 
 			let request = new XMLHttpRequest();
 			request.open('POST', 'server.php');
@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			contactForm.appendChild(statusMessage);
 			let contactMessage = document.querySelector('.status');
 			contactMessage.style.cssText = `color: yellow;
-																			padding-top: 20px`;
+			padding-top: 20px`;
 
 			let request = new XMLHttpRequest();
 			request.open('POST', 'server.php');
