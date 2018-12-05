@@ -133,7 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			statusMessage.classList.add('status');
 			// let message = document.querySelector('.status');
 
-		form.addEventListener('submit', function(event) {
+		form.addEventListener('submit', event => {
 			event.preventDefault();
 			form.appendChild(statusMessage);
 			let formMessage = document.querySelector('.status');
@@ -157,7 +157,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			request.send(json);
 
-			request.addEventListener('readystatechange', function() {
+			request.addEventListener('readystatechange', () => {
 				if (request.readyState < 4 ) {
 					statusMessage.innerHTML = message.loading;
 				} else if (request.readyState === 4 && request.status == 200) {
@@ -173,7 +173,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		});
 
-		contactForm.addEventListener('submit', function(event) {
+		contactForm.addEventListener('submit', event => {
 			event.preventDefault();
 
 			contactForm.appendChild(statusMessage);
@@ -198,7 +198,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 			request.send(json);
 
-			request.addEventListener('readystatechange', function() {
+			request.addEventListener('readystatechange', () => {
 				if (request.readyState < 4 ) {
 					statusMessage.innerHTML = message.loading;
 				} else if (request.readyState === 4 && request.status == 200) {
