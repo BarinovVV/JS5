@@ -173,7 +173,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			event.preventDefault();
 
 			contactForm.appendChild(statusMessage);
-
+			let contactMessage = document.querySelector('.status');
+			contactMessage.style.cssText = `color: yellow;
+																			padding-top: 20px`;
 			let request = new XMLHttpRequest();
 			request.open('POST', 'server.php');
 			// request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
