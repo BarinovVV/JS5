@@ -206,27 +206,19 @@ window.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 
-		let checkContact = document.querySelector('#contactPhone');
-		let checkForm = document.querySelector('#formPhone');
+		let check = document.querySelectorAll('input[name=phone]');
 
-		checkContact.addEventListener('focus', _ => {
-		  if(!/^\+\d*$/.test(checkContact.value))
-		    checkContact.value = '+';
-		});
+		check.forEach(function(elem) {
+			elem.addEventListener('focus', _ => {
+			  if(!/^\+\d*$/.test(elem.value))
+			    elem.value = '+';
+			});
 
-		checkContact.addEventListener('keypress', e => {
-		  if(!/\d/.test(e.key))
-		    e.preventDefault();
-		});
+			elem.addEventListener('keypress', e => {
+			  if(!/\d/.test(e.key))
+			    e.preventDefault();
+			});
 
-		checkForm.addEventListener('focus', _ => {
-		  if(!/^\+\d*$/.test(checkForm.value))
-		    checkForm.value = '+';
-		});
-
-		checkForm.addEventListener('keypress', e => {
-		  if(!/\d/.test(e.key))
-		    e.preventDefault();
 		});
 
 });
