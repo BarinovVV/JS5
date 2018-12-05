@@ -23,12 +23,11 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			myBody.appendChild(newDiv);
 			newDiv.textContent = 'Мы создали новый div';
-			newDiv.style.cssText = `height: ${this.height}px; \
-			width: ${this.width}px; \
-			background-color: ${this.bg};\
+			newDiv.style.cssText = `height: ${this.height}px;
+			width: ${this.width}px; 
+			background-color: ${this.bg};
 			font-size: ${this.fontSize}px;
-			text-align: ${this.textAlign};
-			`;
+			text-align: ${this.textAlign};`;
 
 
 		}
@@ -36,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	}
 
-	let newDiv = new Options(200, 500, 'red', 30, 'center',);
+	let newDiv = new Options(300, 300, '#ccc', 40, 'center',);
 
 	newDiv.createDiv();
 
