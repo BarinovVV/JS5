@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Timer
 
-    let deadLine = '2018-12-04';
+    let deadLine = '2018-12-08';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -310,7 +310,18 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             totalValue.innerHTML = total;
         }
-    })
+    });
+
+    restDays.addEventListener('change', function () {
+        daysSum = +this.value;
+        total = (daysSum + personsSum) * 4000;
+
+        if (persons.value == '' ) {
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
 
 
 
