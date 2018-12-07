@@ -9,8 +9,8 @@ window.addEventListener('DOMContentLoaded', () => {
         for ( let i = a; i < tabContent.length; i++) {
             tabContent[i].classList.remove('show');
             tabContent[i].classList.add('hide');
-        };
-    };
+        }
+    }
 
     hideTabContent(1);
 
@@ -18,8 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (tabContent[b].classList.contains('hide')) {
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show');
-        };
-    };
+        }
+    }
 
     info.addEventListener('click', (event) => {
         let target = event.target;
@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
             'minutes': minutes,
             'seconds': seconds
         }
-    };
+    }
 
 
     function setClock(id, endtime) {
@@ -81,7 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-    };
+    }
 
     function to2(val) {
         return (val < 10 ? "0" + val : val);
@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'hidden';
             this.classList.add('more-splash');
         })
-    })
+    });
 
     // Form
 
@@ -164,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     } else {
                         reject()
                     }
-                })
+                });
                 request.send(json);
             })
         }
@@ -177,9 +177,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         postData(formData)
-            .then(_ => statusMessage.innerHTML = message.loading)
-            .then(_ => statusMessage.innerHTML = message.success)
-            .catch(_ => statusMessage.innerHTML = message.failure)
+            .then(() => statusMessage.innerHTML = message.loading)
+            .then(() => statusMessage.innerHTML = message.success)
+            .catch(() => statusMessage.innerHTML = message.failure)
             .then(clearInput)
     });
 
@@ -239,6 +239,24 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
     });
+
+    // slider
+    let slideIndex = 1,
+        slides = document.querySelectorAll('.slider-item'),
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next'),
+        dotsWrap = document.querySelector('.slider-dots'),
+        dots = document.querySelectorAll('.dot');
+
+    showSlides(slideIndex);
+    function showSlides(n) {
+        slides.forEach(item => item.style.display = 'none');
+        dots.forEach(item => item.classList.remove('dot-active'));
+
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('dot-active');
+
+    }
 
 });
 
