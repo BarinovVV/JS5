@@ -132,6 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     statusMessage.classList.add('status');
 
+    // Отправка формы из модалки на промисах
     form.addEventListener('submit', event => {
         event.preventDefault();
         form.appendChild(statusMessage);
@@ -139,38 +140,50 @@ window.addEventListener('DOMContentLoaded', () => {
         formMessage.style.cssText = `color: white;
 			padding-top: 20px`;
 
-        let request = new XMLHttpRequest();
-        request.open('POST', 'server.php');
-        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-
         let formData = new FormData(form);
-
         let obj = {};
-
         formData.forEach(function(value, key) {
             obj[key] = value;
         });
-
         let json = JSON.stringify(obj);
 
-        request.send(json);
 
-        request.addEventListener('readystatechange', () => {
-            if (request.readyState < 4 ) {
-                statusMessage.innerHTML = message.loading;
-            } else if (request.readyState === 4 && request.status == 200) {
-                statusMessage.innerHTML = message.success;
-            } else {
-                statusMessage.innerHTML = message.failure;
-            }
-        });
 
-        for (let i = 0; i < input.length; i++) {
-            input[i].value = '';
+        function postData(data) {
+
+            return new Promise(function(resolve, reject) {
+                let request = new XMLHttpRequest();
+                request.open('POST', 'server.php');
+                request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+                request.addEventListener('readystatechange', () => {
+                    if (request.readyState < 4 ) {
+                        resolve()
+                    } else if (request.readyState === 4 && request.status == 200) {
+                        resolve()
+                    } else {
+                        reject()
+                    }
+                })
+                request.send(json);
+            })
         }
 
+
+        function clearInput() {
+            for (let i = 0; i < input.length; i++) {
+                input[i].value = '';
+            }
+        }
+
+        postData(formData)
+            .then(_ => statusMessage.innerHTML = message.loading)
+            .then(_ => statusMessage.innerHTML = message.success)
+            .catch(_ => statusMessage.innerHTML = message.failure)
+            .then(clearInput)
     });
 
+    //Отправка формы из контактной формы без промисов
     contactForm.addEventListener('submit', event => {
         event.preventDefault();
 
