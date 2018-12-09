@@ -9,7 +9,7 @@ $(window).ready(function () {
             height: 'show',
             top: '0px'
         }, 1500);
-    })
+    });
 
     $('.close').on('click', function () {
         $('.overlay').animate({
@@ -20,6 +20,6 @@ $(window).ready(function () {
             top: '-200px',
             height: 'hide'
         }, 1000);
-    })
+    });
 
 });
