@@ -53,6 +53,8 @@ function form() {
             for (let i = 0; i < input.length; i++) {
                 input[i].value = '';
             }
+            setTimeout(() => {statusMessage.innerHTML = ''},3000);
+
         }
 
         postData(formData)
@@ -97,6 +99,8 @@ function form() {
                 statusMessage.innerHTML = message.failure;
             }
         });
+
+        setTimeout(() => {statusMessage.innerHTML = ''},3000);
 
         for (let i = 0; i < contactInput.length; i++) {
             contactInput[i].value = '';
